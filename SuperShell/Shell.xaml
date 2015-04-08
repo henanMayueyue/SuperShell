@@ -1,0 +1,35 @@
+﻿<Window x:Class="SuperShell.Shell"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:regions="http://www.codeplex.com/CompositeWPF"
+        xmlns:infrastructure="clr-namespace:SuperShell.Infrastructure;assembly=SuperShell.Infrastructure"
+        Title="Super Shell" Height="350" Width="525">
+	
+	<!-- TODO: implement window input bindings -->
+	<Window.InputBindings>
+	</Window.InputBindings>
+	
+	<Grid x:Name="LayoutRoot">
+		<Grid.RowDefinitions>
+			<RowDefinition Height="Auto" />
+			<RowDefinition Height="Auto" />
+			<RowDefinition />
+		</Grid.RowDefinitions>
+		<Grid.ColumnDefinitions>
+			<ColumnDefinition MinWidth="50" />
+			<ColumnDefinition Width="Auto" />
+			<ColumnDefinition MinWidth="50" />
+		</Grid.ColumnDefinitions>
+		
+		<Menu Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="3" regions:RegionManager.RegionName="{x:Static infrastructure:RegionNames.MainMenuRegion}">
+		</Menu>
+		
+		<ToolBarTray Grid.ColumnSpan="3" Grid.Column="0" Grid.Row="1" regions:RegionManager.RegionName="{x:Static infrastructure:RegionNames.MainToolBarRegion}">
+		</ToolBarTray>
+		
+		<ContentControl Grid.Row="2" Grid.Column="0" regions:RegionManager.RegionName="{x:Static infrastructure:RegionNames.LeftPaneRegion}" />
+		<ContentControl Grid.Row="2" Grid.Column="2" regions:RegionManager.RegionName="{x:Static infrastructure:RegionNames.RightPaneRegion}" />
+
+		<GridSplitter Width="5" HorizontalAlignment="Center" VerticalAlignment="Stretch" Grid.Row="2" Grid.Column="1" />
+	</Grid>
+</Window>
